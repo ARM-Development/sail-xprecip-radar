@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Grid QC’d Files Using Nearest Neighbor Interpolation &#8212; SAIL X-Band Radar Precipitation</title>
+    <title>Grid QC’d Dataset - Surface QUantitatIve pRecipitation Estimation (SQUIRE) &#8212; SAIL X-Band Radar Precipitation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Plot a Description of the Liquid Precip Estimation Method" href="plot-method-description-figure.html" />
     <link rel="prev" title="Extracted Radar Columns and In-Situ Sensors (RadCLss) Dataset" href="matched_dataset_march_14_2022.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -148,15 +147,32 @@ const thebe_selector_output = ".output, .cell_output"
   Investigate Precipitation
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="compare-with-kazr.html">
+  <a class="reference internal" href="../radar-precip/compare-with-kazr.html">
    Check Reflectivity Calibration
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="csu-xband-snowfall-march-14-2022.html">
+  <a class="reference internal" href="../radar-precip/csu-xband-snowfall-march-14-2022.html">
    Snowfall Retrievals CSU X-Band Radar March 14, 2022
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../radar-precip/plot-method-description-figure.html">
+   Plot a Description of the Liquid Precip Estimation Method
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Value Added Products
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="cmac2_technical_document.html">
+   Figures for the SAIL CMAC2.0 Technical Document
   </a>
  </li>
  <li class="toctree-l1">
@@ -166,12 +182,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Grid QC’d Files Using Nearest Neighbor Interpolation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="plot-method-description-figure.html">
-   Plot a Description of the Liquid Precip Estimation Method
+   Grid QC’d Dataset - Surface QUantitatIve pRecipitation Estimation (SQUIRE)
   </a>
  </li>
 </ul>
@@ -233,7 +244,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/ARM-Development/sail-xprecip-radar/main?urlpath=lab/tree/notebooks/radar-precip/nearest-neighbor-interpolation.ipynb"
+        <a href="https://mybinder.org/v2/gh/ARM-Development/sail-xprecip-radar/main?urlpath=lab/tree/notebooks/VAP/nearest-neighbor-interpolation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -251,7 +262,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://jupyter-open.olcf.ornl.gov/hub/user-redirect/git-pull?repo=https%3A//github.com/ARM-Development/sail-xprecip-radar&urlpath=lab/tree/sail-xprecip-radar/notebooks/radar-precip/nearest-neighbor-interpolation.ipynb&branch=main"
+        <a href="https://jupyter-open.olcf.ornl.gov/hub/user-redirect/git-pull?repo=https%3A//github.com/ARM-Development/sail-xprecip-radar&urlpath=lab/tree/sail-xprecip-radar/notebooks/VAP/nearest-neighbor-interpolation.ipynb&branch=main"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -294,7 +305,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/radar-precip/nearest-neighbor-interpolation.ipynb"
+        <a href="../_sources/VAP/nearest-neighbor-interpolation.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -431,7 +442,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Grid QC’d Files Using Nearest Neighbor Interpolation</h1>
+                <h1>Grid QC’d Dataset - Surface QUantitatIve pRecipitation Estimation (SQUIRE)</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -520,8 +531,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="grid-qcd-files-using-nearest-neighbor-interpolation">
-<h1>Grid QC’d Files Using Nearest Neighbor Interpolation<a class="headerlink" href="#grid-qcd-files-using-nearest-neighbor-interpolation" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="grid-qcd-dataset-surface-quantitative-precipitation-estimation-squire">
+<h1>Grid QC’d Dataset - Surface QUantitatIve pRecipitation Estimation (SQUIRE)<a class="headerlink" href="#grid-qcd-dataset-surface-quantitative-precipitation-estimation-squire" title="Permalink to this headline">#</a></h1>
 <section id="imports">
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
@@ -873,7 +884,7 @@ Finished writing: gridded-for-dan/gucxprecipradarcmacM1.c1.20220314-035720.gridd
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./radar-precip"
+            path: "./VAP"
         },
         predefinedOutput: true
     }
@@ -893,13 +904,6 @@ Finished writing: gridded-for-dan/gucxprecipradarcmacM1.c1.20220314-035720.gridd
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">Extracted Radar Columns and In-Situ Sensors (RadCLss) Dataset</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="plot-method-description-figure.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Plot a Description of the Liquid Precip Estimation Method</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
