@@ -497,12 +497,12 @@ title="Print to PDF"
 <h2>Imports<a class="headerlink" href="#imports" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import xradar as xd
-import xarray as xr
-import pyart
-import hvplot.xarray
-import matplotlib.pyplot as plt
-import numpy as np
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">xradar</span> <span class="k">as</span> <span class="nn">xd</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">pyart</span>
+<span class="kn">import</span> <span class="nn">hvplot.xarray</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
@@ -2431,7 +2431,7 @@ if (window.Jupyter !== undefined) {
 <h2>Read the Data<a class="headerlink" href="#read-the-data" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>radar = xd.io.open_cfradial1_datatree(&#39;../../data/sample-radar/test-pol.nc&#39;, first_dim=&#39;auto&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">radar</span> <span class="o">=</span> <span class="n">xd</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">open_cfradial1_datatree</span><span class="p">(</span><span class="s1">&#39;../../data/sample-radar/test-pol.nc&#39;</span><span class="p">,</span> <span class="n">first_dim</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2441,8 +2441,8 @@ if (window.Jupyter !== undefined) {
 <h2>Georeference the Dataset<a class="headerlink" href="#georeference-the-dataset" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>first_sweep = radar[&#39;sweep_0&#39;].to_dataset()
-geo_ds = xd.georeference.get_x_y_z(first_sweep)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first_sweep</span> <span class="o">=</span> <span class="n">radar</span><span class="p">[</span><span class="s1">&#39;sweep_0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">()</span>
+<span class="n">geo_ds</span> <span class="o">=</span> <span class="n">xd</span><span class="o">.</span><span class="n">georeference</span><span class="o">.</span><span class="n">get_x_y_z</span><span class="p">(</span><span class="n">first_sweep</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2452,7 +2452,7 @@ geo_ds = xd.georeference.get_x_y_z(first_sweep)
 <h2>Plot PPIs<a class="headerlink" href="#plot-ppis" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>geo_ds.DBZ.plot(x=&#39;x&#39;, y=&#39;y&#39;, vmin=-20, vmax=60, cmap=&#39;pyart_HomeyerRainbow&#39;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_ds</span><span class="o">.</span><span class="n">DBZ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2462,7 +2462,7 @@ geo_ds = xd.georeference.get_x_y_z(first_sweep)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>geo_ds.DBZ.plot(x=&#39;x&#39;, y=&#39;y&#39;, vmin=-20, vmax=60, cmap=&#39;pyart_HomeyerRainbow&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_ds</span><span class="o">.</span><span class="n">DBZ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2478,7 +2478,7 @@ geo_ds = xd.georeference.get_x_y_z(first_sweep)
 <h2>Clean up the Azimuths<a class="headerlink" href="#clean-up-the-azimuths" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>geo_ds = geo_ds.drop_duplicates(&#39;azimuth&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">geo_ds</span> <span class="o">=</span> <span class="n">geo_ds</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="s1">&#39;azimuth&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2489,20 +2489,20 @@ geo_ds = xd.georeference.get_x_y_z(first_sweep)
 <p>We start first by slicing for the desired azimuths</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector = geo_ds.sel(azimuth=slice(329, 340))
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span> <span class="o">=</span> <span class="n">geo_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">azimuth</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">329</span><span class="p">,</span> <span class="mi">340</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.DBZ.plot(x=&#39;x&#39;,
-                y=&#39;y&#39;,
-                cmap=&#39;pyart_HomeyerRainbow&#39;,
-                vmin=-20,
-                vmax=60)
-plt.xlim(-10_000, 0)
-plt.ylim(0, 10_000)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">DBZ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span>
+                <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span>
+                <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">,</span>
+                <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span>
+                <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2515,9 +2515,9 @@ plt.ylim(0, 10_000)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.KDP_LP.plot(x=&#39;x&#39;, y=&#39;y&#39;, cmap=&#39;pyart_Carbone42&#39;, vmin=0, vmax=4)
-plt.xlim(-10_000, 0)
-plt.ylim(0, 10_000)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_Carbone42&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2530,7 +2530,7 @@ plt.ylim(0, 10_000)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.KDP_LP.plot.hist(bins = 40);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span> <span class="o">=</span> <span class="mi">40</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2540,9 +2540,9 @@ plt.ylim(0, 10_000)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.KDP_maesaka.plot(x=&#39;x&#39;, y=&#39;y&#39;, cmap=&#39;pyart_Carbone42&#39;, vmin=0, vmax=4)
-plt.xlim(-10_000, 0)
-plt.ylim(0, 10_000)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">KDP_maesaka</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_Carbone42&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2557,17 +2557,17 @@ plt.ylim(0, 10_000)
 <h3>Select a single ray, using an azimuth<a class="headerlink" href="#select-a-single-ray-using-an-azimuth" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>azimuth_subset = geo_ds.sel(azimuth=336, method=&#39;nearest&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">azimuth_subset</span> <span class="o">=</span> <span class="n">geo_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">azimuth</span><span class="o">=</span><span class="mi">336</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.DBZ.plot(x=&#39;x&#39;, y=&#39;y&#39;, cmap=&#39;pyart_HomeyerRainbow&#39;, vmin=-20, vmax=60)
-plt.xlim(-10_000, 0)
-plt.ylim(0, 10_000)
-plt.plot(azimuth_subset.x, azimuth_subset.y, color=&#39;k&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">DBZ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_HomeyerRainbow&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">20</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">azimuth_subset</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">azimuth_subset</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2580,10 +2580,10 @@ plt.plot(azimuth_subset.x, azimuth_subset.y, color=&#39;k&#39;)
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>sector.KDP_LP.plot(x=&#39;x&#39;, y=&#39;y&#39;, cmap=&#39;pyart_Carbone42&#39;, vmin=0, vmax=4)
-plt.xlim(-10_000, 0)
-plt.ylim(0, 10_000)
-plt.plot(azimuth_subset.x, azimuth_subset.y, color=&#39;k&#39;);
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sector</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;pyart_Carbone42&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">10_000</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10_000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">azimuth_subset</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">azimuth_subset</span><span class="o">.</span><span class="n">y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -2593,19 +2593,19 @@ plt.plot(azimuth_subset.x, azimuth_subset.y, color=&#39;k&#39;);
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
-ax = plt.subplot(111)
-azimuth_subset.KDP_LP.plot(ax=ax,
-                           color=&#39;tab:blue&#39;,
-                           label=&#39;KDP&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+                           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDP&#39;</span><span class="p">)</span>
 
 
-ax2 = ax.twinx()
-azimuth_subset.DBZ.plot(ax=ax2,
-                        color=&#39;tab:red&#39;,
-                        ylim=(-20, 60),
-                        label=&#39;DBZ&#39;)
-plt.legend();
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">DBZ</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span>
+                        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span>
+                        <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+                        <span class="n">label</span><span class="o">=</span><span class="s1">&#39;DBZ&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -2615,20 +2615,20 @@ plt.legend();
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
-ax = plt.subplot(111)
-azimuth_subset.PHIDP.plot(ax=ax,
-                          color=&#39;tab:blue&#39;,
-                          ylim=(-180, 180),
-                          label=&#39;KDP&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">PHIDP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                          <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+                          <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span>
+                          <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDP&#39;</span><span class="p">)</span>
 
 
-ax2 = ax.twinx()
-azimuth_subset.PHIDP_UF.plot(ax=ax2,
-                             ylim=(-180, 180),
-                             color=&#39;tab:red&#39;,
-                             label=&#39;Unfolded PHIDP&#39;)
-plt.legend();
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">PHIDP_UF</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span>
+                             <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span>
+                             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span>
+                             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unfolded PHIDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -2638,18 +2638,18 @@ plt.legend();
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
-ax = plt.subplot(111)
-azimuth_subset.KDP_LP.plot(ax=ax,
-                           color=&#39;tab:blue&#39;,
-                           label=&#39;KDP&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+                           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDP&#39;</span><span class="p">)</span>
 
 
-ax2 = ax.twinx()
-azimuth_subset.PHIDP_LP.plot(ax=ax2,
-                             color=&#39;tab:red&#39;,
-                             label=&#39;PHIDP&#39;)
-plt.legend();
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">PHIDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span>
+                             <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span>
+                             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;PHIDP&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -2659,20 +2659,20 @@ plt.legend();
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure()
-ax = plt.subplot(111)
-azimuth_subset.KDP_LP.plot(ax=ax,
-                           ylim=(-0.5, 3),
-                           color=&#39;tab:blue&#39;,
-                           label=&#39;KDP&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">KDP_LP</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span>
+                           <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                           <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:blue&#39;</span><span class="p">,</span>
+                           <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDP&#39;</span><span class="p">)</span>
 
 
-ax2 = ax.twinx()
-azimuth_subset.KDP_maesaka.plot(ax=ax2,
-                                ylim=(-0.5, 3),
-                                color=&#39;tab:red&#39;,
-                                label=&#39;KDP Maesaka&#39;)
-plt.legend();
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">azimuth_subset</span><span class="o">.</span><span class="n">KDP_maesaka</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax2</span><span class="p">,</span>
+                                <span class="n">ylim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+                                <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tab:red&#39;</span><span class="p">,</span>
+                                <span class="n">label</span><span class="o">=</span><span class="s1">&#39;KDP Maesaka&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
