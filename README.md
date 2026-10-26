@@ -1,10 +1,12 @@
 # SAIL X-band Precipitation Radar (sail-xprecip-radar)
 
-A repository for collaboration with ARM on the X-Band radar(s) deployed to Colorado for the Surface Atmosphere Integrated Field Laboratory (SAIL) campaign.
+A repository for collaboration with ARM on the X-Band radar(s) deployed to
+Colorado for the Surface Atmosphere Integrated Field Laboratory (SAIL) campaign.
 
 ## Install the Environment
 
-Before getting started with the materials in this repository, you will need to install the environment using the following steps:
+Before getting started with the materials in this repository, you will need to
+install the environment using the following steps:
 
 1. Clone this repository
 
